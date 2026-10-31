@@ -38,6 +38,20 @@
     }
     h1 { margin: 0; font-size: clamp(2.6rem, 8vw, 4.2rem); letter-spacing: -.06em; line-height: 1.05; }
     .tagline { color: var(--muted); margin: 14px auto 0; max-width: 540px; font-size: 1.08rem; }
+    .top-actions {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      margin: 24px auto 0;
+    }
+    .top-actions a {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 10px 18px; border-radius: 10px;
+      border: 1px solid #40577d; background: #263b5c;
+      color: #f4f7ff; text-decoration: none; font-weight: 650;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .top-actions a:hover { background: #34517d; transform: translateY(-1px); }
+    .top-actions a.secondary { background: var(--panel-2); border-color: var(--border); }
+    .top-actions a.secondary:hover { background: #293448; }
     .version {
       display: inline-block; margin-top: 22px; padding: 5px 12px;
       border: 1px solid #40577d; border-radius: 999px;
@@ -76,6 +90,10 @@
     <div class="mark" aria-hidden="true">T</div>
     <h1>TetalBot</h1>
     <p class="tagline">AI-assisted moderation and server management for Discord.</p>
+    <div class="top-actions" aria-label="Discord links">
+      <a href="https://discord.com/oauth2/authorize?client_id=1552343245286277170" target="_blank" rel="noopener noreferrer">Invite TetalBot</a>
+      <a class="secondary" href="https://discord.gg/5PGx39JyYt" target="_blank" rel="noopener noreferrer">Join Support Server</a>
+    </div>
     <span class="version">VERSION 1.1 · BETA</span>
     <nav class="site-links" aria-label="Legal">
       <a href="tos.html">Terms of Service</a>
