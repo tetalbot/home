@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tetal Privacy Policy</title>
+<style>
+:root{--fg:#1a1a1a;--bg:#fff;--mute:#5c6370;--link:#2f5fd0;--line:#d9dce1}
+@media(prefers-color-scheme:dark){:root{--fg:#e6e6e6;--bg:#16171a;--mute:#9aa0aa;--link:#8ab4ff;--line:#2e3036}}
+body{font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif;max-width:760px;margin:0 auto;padding:2rem 1rem 4rem;color:var(--fg);background:var(--bg)}
+h1{margin-bottom:.2rem}h2{margin-top:2.2rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}
+a{color:var(--link)}nav{margin-bottom:1.5rem}.mute{color:var(--mute)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;display:block;overflow-x:auto}
+td,th{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<nav><a href="tos.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a></nav>
+<h1>Tetal Privacy Policy</h1>
+<p class="mute">Last updated: October 31, 2026</p>
+
+<p>Tetal (“the bot”, “we”, “us”) is an AI-assisted Discord moderation bot made and operated by Tritrax. This policy explains what the bot collects, why, how long it keeps it, who it is shared with, and what control you have. It applies to the bot and to this website.</p>
+
+<h2>1. Who is responsible</h2>
+<p>Tritrax operates the bot. When a server adds Tetal, the server’s owners and staff decide how it is used on their members. In data protection terms, the server is mainly responsible for deciding to use a moderation bot, and we process the data on its behalf to run the service. Contact details are in section 11.</p>
+
+<h2>2. What the bot collects</h2>
+<p>Tetal only works inside servers. It does not read your direct messages with other people. It ignores messages written by bots. In servers where it is present it stores the following in its database:</p>
+<table>
+<tr><th>Data</th><th>Details</th></tr>
+<tr><td>Server and channel info</td><td>Server name and ID, channel names, IDs, types and categories.</td></tr>
+<tr><td>Member info</td><td>Your Discord user ID and the display name you use in that server.</td></tr>
+<tr><td>Message content</td><td>The text of messages sent in channels the bot can see (cut off at 4,000 characters), who sent them, when, whether they were edited, and which message they replied to. Channels a server excludes are not stored.</td></tr>
+<tr><td>Attachments and links</td><td>For attachments: file name, type, size and the file address with query parameters removed. For links: the web address found in the message. We do not store the attachment files themselves.</td></tr>
+<tr><td>Conversations with the bot</td><td>The last 20 exchanges between a staff member and the bot, per server and channel, used so the bot follows the thread of a request.</td></tr>
+<tr><td>Moderation records</td><td>Pending and completed proposed actions, who requested and confirmed them, who they targeted, the reason if given, and the result. Plus moderation cases (warnings, mutes, kicks, bans) and any investigations and evidence excerpts staff choose to save.</td></tr>
+<tr><td>Server settings</td><td>Setup choices such as rules, logs and staff channels, retention period, excluded channels and which low-risk actions may run automatically.</td></tr>
+<tr><td>Usage counts</td><td>How many AI requests were made and how many tokens they used. This does not include message content.</td></tr>
+</table>
+<p>Stored messages are indexed so staff can ask things like “find the messages about X” and so the bot has context when a moderator mentions it. A server can also run a backfill, which stores recent history from a chosen channel, including messages sent before the bot was added.</p>
+
+<h2>3. Why we use it</h2>
+<p>To understand moderator requests, show relevant context, carry out confirmed moderation actions, keep an audit trail of who did what, notify affected members, keep the service secure, and fix bugs. We do not use it for advertising or profiling.</p>
+
+<h2>4. AI processing and training</h2>
+<p>When a moderator mentions the bot, the request, relevant recent messages, staff and rules context, and any relevant images are sent to Google’s Gemini API so the model can work out what is being asked. The model only proposes actions. A person confirms them in Discord unless the server has chosen to auto-run specific low-risk actions.</p>
+<p><strong>We do not use your messages, images or any other data to train or fine-tune any AI model, and we do not sell it.</strong> We use Gemini on Google’s paid API tier, where Google states it does not use prompts or responses to improve its products. Google may log prompts and responses for a limited time to detect abuse and meet legal duties. Google’s terms apply to that processing.</p>
+
+<h2>5. Links</h2>
+<p>If a moderator asks the bot to check a link, the bot fetches the public page (up to 512 KB, no logins, no private or internal addresses) with the user agent “TetalBot-LinkInspector/1.0”. A short text excerpt may be sent to Gemini and, if staff save it, stored as evidence. The site you inspect will see a request from our server.</p>
+
+<h2>6. How long we keep data</h2>
+<ul>
+<li><strong>Stored messages:</strong> 90 days by default. Server admins can set 1 to 3,650 days with <code>/context_settings</code>. Expired messages are deleted by a daily cleanup.</li>
+<li><strong>Deleted messages:</strong> when a message is deleted in Discord, the bot blanks its stored text and removes its attachment and link records.</li>
+<li><strong>Bot conversations:</strong> automatically deleted after 2 hours.</li>
+<li><strong>Moderation cases, investigations and settings:</strong> kept as the server’s records until the server asks us to delete them.</li>
+<li><strong>Usage counts:</strong> kept for accounting, with no message content.</li>
+<li><strong>Technical logs:</strong> a short rolling log (about 500 lines) is held in memory for troubleshooting and is lost on restart.</li>
+</ul>
+
+<h2>7. Who sees it</h2>
+<ul>
+<li>Staff of the server the data belongs to, through the bot’s responses and the server’s log channel.</li>
+<li>Members who are the target of an action, who may receive a direct message saying what happened.</li>
+<li>Our service providers: Google (Gemini API) and our database and hosting providers. They process data only to provide those services.</li>
+<li>Authorities, if the law requires it or to protect safety.</li>
+</ul>
+<p>Data from one server is kept separate from other servers. We never sell personal data.</p>
+
+<h2>8. Your choices and rights</h2>
+<p>Depending on where you live (including the EU and UK), you may ask what we hold about you, ask us to correct or delete it, object to processing, or ask for a copy. Message and moderation data relates to a specific server, so we may need to involve that server’s staff. To use any of this, contact us (section 11). Server admins can shorten retention, exclude channels, or ask us to delete all their server’s data. You can also complain to your data protection authority. In Romania this is ANSPDCP.</p>
+
+<h2>9. Security</h2>
+<p>Data is stored in a managed database with restricted access, and the bot checks permissions before it acts. No system is perfectly secure, so we cannot guarantee absolute security.</p>
+
+<h2>10. Children</h2>
+<p>Tetal is for communities that follow Discord’s minimum age rules (13, or higher where local law says so). We do not knowingly collect data from anyone below the age Discord permits. Contact us if you think that has happened.</p>
+
+<h2>11. Contact and changes</h2>
+<p>Questions, privacy requests or data deletion requests: join the <a href="https://discord.gg/5PGx39JyYt">Tetal support server</a>, email <a href="mailto:svozigma@gmail.com">svozigma@gmail.com</a>, or contact the operator on Discord at <strong>_tritrax_</strong>.</p>
+<p>We may update this policy. The date at the top shows the latest version. Using the bot after a change means you accept it.</p>
+</body>
+</html>
