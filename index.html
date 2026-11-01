@@ -141,6 +141,28 @@
       <div class="changelog-entry">
         <div class="changelog-head">
           <h3>Version 1.2 Beta</h3>
+          <span class="date">2 November 2026 · Build f6cc09d</span>
+        </div>
+        <ul>
+          <li>Added a generic Discord API execution engine, allowing the agent to discover and use supported Discord operations dynamically instead of relying only on individually registered commands.</li>
+          <li>Expanded dynamic operation support across servers, channels, categories, roles, members, threads, and messages.</li>
+          <li>Added method-signature-aware argument validation and conversion for supported Discord.py operations.</li>
+          <li>Improved automatic resolution of Discord resource names, IDs, and mentions.</li>
+          <li>Added argument normalisation for Discord permissions, role colours, and supported resource properties.</li>
+          <li>Added post-execution checks so the agent can verify whether requested Discord changes were actually applied.</li>
+          <li>Improved handling of unsupported operations, invalid arguments, missing resources, and Discord API errors.</li>
+          <li>Excluded generic execution paths that require binary uploads or unsupported argument types.</li>
+          <li>Improved multi-step planning with bounded execution, tool-result feedback, duplicate-call detection, and limited recovery attempts.</li>
+          <li>Added channel permission synchronisation with the parent category, including high-risk confirmation before changes are applied.</li>
+          <li>Strengthened authorisation, Discord permission checks, risk classification, and confirmation handling for modifying operations.</li>
+          <li>Improved evidence validation for message-deletion requests.</li>
+          <li>Expanded regression tests for generic Discord operations, argument handling, execution verification, and channel permission synchronisation.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="changelog-head">
+          <h3>Version 1.2 Beta</h3>
           <span class="date">1 November 2026 · Build d1c5d01</span>
         </div>
         <ul>
