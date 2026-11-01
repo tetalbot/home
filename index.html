@@ -136,27 +136,67 @@
     <section id="changelog">
       <div class="changelog-head">
         <h2>Changelog</h2>
-        <span class="date">Version 1.1 Beta</span>
       </div>
-      <ul>
-        <li>Added centralized agent orchestration, a typed tool registry, permission checks, persistent confirmations, bounded execution, and duplicate-call protection.</li>
-        <li>Added PostgreSQL-backed proposals, conversation memory, retained message context, guild settings, moderation cases, investigations, and Gemini usage tracking.</li>
-        <li>Added a dry-run-first importer for legacy SQLite and JSON data.</li>
-        <li>Added event-driven message collection, deletion tracking, retention cleanup, and permission-filtered message search.</li>
-        <li>Expanded read tools for server and channel state, messages, threads, assets, audit logs, invites, webhooks, AutoMod rules, public links, AI usage, and diagnostics.</li>
-        <li>Added confirmed management of threads, forum posts, scheduled events, invites, and webhooks.</li>
-        <li>Added keyword AutoMod rule creation, editing, and deletion.</li>
-        <li>Added emoji and sticker creation from Discord attachments, plus deletion.</li>
-        <li>Added persistent investigations with message, public URL, and audit-log evidence.</li>
-        <li>Added role permission editing with strict validation and owner-only Administrator grants.</li>
-        <li>Expanded server settings for channels, description, notifications, media filtering, verification, and AFK configuration.</li>
-        <li>Added per-server context retention controls and excluded-channel settings.</li>
-        <li>Added bounded, permission-checked message history backfill for a single channel.</li>
-        <li>Added Gemini token usage tracking across interpretation, agent reasoning, and message selection.</li>
-        <li>Improved transient-error handling with capped exponential backoff.</li>
-        <li>Added sequential multi-action confirmation queues, with separate Confirm and Cancel controls for each action.</li>
-        <li>Pending confirmation queues and their Discord controls are restored after a bot restart.</li>
-      </ul>
+
+      <div class="changelog-entry">
+        <div class="changelog-head">
+          <h3>Version 1.2 Beta</h3>
+          <span class="date">1 November 2026 · Build d1c5d01</span>
+        </div>
+        <ul>
+          <li>Added a dynamically generated AI capability reference built from the bot's live tool registry, automation triggers, database repositories, event handlers, and approval policies.</li>
+          <li>Added automatic discovery and documentation of registered moderation tools, diagnostic tools, read-only tools, argument schemas, risk levels, required Discord permissions, and automation eligibility.</li>
+          <li>Added documentation of supported automation triggers, trigger-specific conditions, permitted automation actions, prohibited actions, and the automation approval process.</li>
+          <li>Added the generated <code>AGENT_CAPABILITIES.md</code> reference and the <code>scripts/generate_agent_capabilities.py</code> regeneration script.</li>
+          <li>Added automatic capability-reference injection into the main Gemini system prompt, agent reasoning prompt, and automation-generation instructions.</li>
+          <li>Added <code>bot/automations/intents.py</code> to centralize natural-language automation intent detection and remove duplicated routing patterns.</li>
+          <li>Expanded automation-intent recognition for recurring and event-driven requests involving new members, member departures, messages, reactions, voice activity, and role changes.</li>
+          <li>Added explicit recognition of requests such as “every new member”, “each new member”, and “welcome every member”.</li>
+          <li>Kept one-time requests, such as writing a single welcome message, separate from persistent automation requests.</li>
+          <li>Updated automation generation to use live registered tool definitions and runtime-provided supported trigger identifiers instead of duplicated hardcoded lists.</li>
+          <li>Added <code>TRIGGER_CONDITIONS</code> to the automation engine to define accepted conditions for each supported trigger.</li>
+          <li>Improved AI instructions to distinguish root-level arguments for read-only tools from the nested <code>parameters</code> envelope used by modifying moderation tools.</li>
+          <li>Added <code>latest_count</code> support to <code>search_recent_messages</code>, allowing retrieval of the latest 1–200 messages without a text query or author filter.</li>
+          <li>Added latest-message retrieval from the current channel or a selected channel through <code>channel_id</code>.</li>
+          <li>Added exact message IDs, channel IDs, author details, timestamps, message content, and jump URLs to latest-message search results.</li>
+          <li>Added retrieval scope and completeness information to latest-message search results.</li>
+          <li>Updated latest-message retrieval to include bot-authored messages while excluding the current command message.</li>
+          <li>Added permission checks requiring both the requesting moderator and the bot to have View Channel and Read Message History in the selected channel.</li>
+          <li>Added explicit error handling for unavailable channels, missing bot server-member context, and Discord access failures.</li>
+          <li>Updated read-only message-search argument handling to accept both root-level arguments and nested <code>parameters</code> wrappers.</li>
+          <li>Updated search validation to accept <code>latest_count</code> as an alternative to a text query or author ID, enforce the 1–200 range, and reject incompatible combinations of filters.</li>
+          <li>Updated the bulk-deletion agent procedure to retrieve recent messages first, preserve their exact message and channel IDs, and prepare a confirmation preview before execution.</li>
+          <li>Added channel-aware message selection to bulk-deletion proposals and capped each bulk-deletion confirmation at 200 messages.</li>
+          <li>Added automation-intent regression tests covering recurring member-welcome requests and ordinary one-time welcome requests.</li>
+          <li>Expanded message-search tests to cover latest-message retrieval, the 200-message limit, bot-authored messages, command-message exclusion, nested arguments, and invalid filter combinations.</li>
+        </ul>
+        <p class="date" style="margin-top: 14px;">Verification: 179 tests passed, with 169 additional subtests passed. Three non-blocking warnings were reported in the local test run. Bulk deletion still requires live Discord verification.</p>
+      </div>
+
+      <div class="changelog-entry" style="margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border);">
+        <div class="changelog-head">
+          <h3>Version 1.1 Beta</h3>
+        </div>
+        <ul>
+          <li>Added centralized agent orchestration, a typed tool registry, permission checks, persistent confirmations, bounded execution, and duplicate-call protection.</li>
+          <li>Added PostgreSQL-backed proposals, conversation memory, retained message context, guild settings, moderation cases, investigations, and Gemini usage tracking.</li>
+          <li>Added a dry-run-first importer for legacy SQLite and JSON data.</li>
+          <li>Added event-driven message collection, deletion tracking, retention cleanup, and permission-filtered message search.</li>
+          <li>Expanded read tools for server and channel state, messages, threads, assets, audit logs, invites, webhooks, AutoMod rules, public links, AI usage, and diagnostics.</li>
+          <li>Added confirmed management of threads, forum posts, scheduled events, invites, and webhooks.</li>
+          <li>Added keyword AutoMod rule creation, editing, and deletion.</li>
+          <li>Added emoji and sticker creation from Discord attachments, plus deletion.</li>
+          <li>Added persistent investigations with message, public URL, and audit-log evidence.</li>
+          <li>Added role permission editing with strict validation and owner-only Administrator grants.</li>
+          <li>Expanded server settings for channels, description, notifications, media filtering, verification, and AFK configuration.</li>
+          <li>Added per-server context retention controls and excluded-channel settings.</li>
+          <li>Added bounded, permission-checked message history backfill for a single channel.</li>
+          <li>Added Gemini token usage tracking across interpretation, agent reasoning, and message selection.</li>
+          <li>Improved transient-error handling with capped exponential backoff.</li>
+          <li>Added sequential multi-action confirmation queues, with separate Confirm and Cancel controls for each action.</li>
+          <li>Pending confirmation queues and their Discord controls are restored after a bot restart.</li>
+        </ul>
+      </div>
     </section>
   </main>
 
